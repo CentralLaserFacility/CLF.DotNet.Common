@@ -1,0 +1,19 @@
+Note that not all files in the DotNet.Common repository and in the released
+software packages belong to the DotNet.Common project. For 3rd party files, 
+the individual licenses apply.
+
+* FluentAssertions
+    Copyright (c) Dennis Doomen 2010-2023
+    Apache-2.0 License, https://github.com/fluentassertions/fluentassertions/blob/develop/LICENSE
+
+* xunit
+    Copyright (C) .NET Foundation
+    Apache-2.0 License, https://github.com/xunit/xunit/blob/main/LICENSE
+
+* coverlet.collector
+    Copyright (c) 2018 Toni Solarin-Sodara
+    MIT License, https://github.com/xunit/xunit/blob/main/LICENSE
+
+* BitMiracle.LibTiff.NET
+    Copyright (c) 2008-2023 Bit Miracle
+    New BSD license, https://github.com/xunit/xunit/blob/main/LICENSE

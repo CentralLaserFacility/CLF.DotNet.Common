@@ -1,0 +1,8 @@
+﻿//
+// _Notes.txt
+//
+
+This is targeted for net6.0 rather than netstandard2.0, 
+because even with 'PolySharp' installed there are several API's
+that are only available in net6.
+

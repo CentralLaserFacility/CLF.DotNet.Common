@@ -1,1 +1,2 @@
-# CLF.DotNet.Common
+# DotNet.Common
+Common libraries for dotnet development

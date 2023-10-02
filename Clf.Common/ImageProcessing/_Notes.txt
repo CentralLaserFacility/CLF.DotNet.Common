@@ -1,0 +1,57 @@
+﻿//
+// _Notes.txt
+//
+
+Rotation and Mirroring
+
+  Distinct operations, chained together ?
+
+  Cleaner but more expensive ; computation and memory
+  
+  ?? What are the options we need to support ??
+
+Profile
+
+  Display same pixels as the 'resized' image 
+
+  Or display the entire full-resolution data
+    - Glitches with high-intensity-valued pixels will show up,
+      but low-valued glitches won't !
+  
+Options for resizing with alternatives to nearest-neighbour ?
+
+  Identify a patch of pixels ...
+    - take 'centre' value
+    - max in that patch
+    - min in that patch
+    - average over that patch
+
+Zoom and pan !!
+
+======================
+
+Need to be clear as to when we're mutating an image,
+vs when we're creating a mutated clone of the image.
+
+Nice to think of images as immutable, with operations
+applied in a chain ... but there are efficiency concerns ?
+
+Naming convention ?
+  cloned  = original.CreateClone_Resized() ;
+  mutated = original.PerformResize() ;
+
+==================
+
+Graphics primitives ?
+
+Sharing code with the WinUI Viewer !!!
+
+FluentAssertions ??
+
+================
+
+** INCONSISTENT LINE ENDINGS ...
+
+
+     
+
