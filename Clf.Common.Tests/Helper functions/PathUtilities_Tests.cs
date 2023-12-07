@@ -23,7 +23,7 @@ namespace Common_UnitTests
       // that contains this 'test' project, and to this file, we'll find that it matches ...
       GetSourceCodePath().Should().Be(
         repoDirectory 
-      + @"DotNet.Common\Clf.Common.Tests\Helper functions\PathUtilities_Tests.cs"
+      + @"CLF.DotNet.Common\Clf.Common.Tests\Helper functions\PathUtilities_Tests.cs"
       ) ;
     }
 

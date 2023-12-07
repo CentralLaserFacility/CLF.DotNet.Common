@@ -1,74 +1,18 @@
-﻿//
-// Helpers_FromAutomationLogicCommon.cs
+//
+// Helpers.cs
 //
 
+using System.Numerics;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Clf.Common.ExtensionMethods;
+using Clf.Common.Utils;
+using Clf.Common;
 
-using Clf.Common.ExtensionMethods ;
-
-namespace Clf.Common.ExtensionMethods
+namespace Clf.Common.Utils
 {
 
-  public static partial class FromAutomationLogicCommon
-  {
-
-    //
-    // Throws an exception if we fail to create
-    //
-
-    public static void EnsureDirectoryExists ( this string directory )
-    {
-      if ( ! System.IO.Directory.Exists(directory) )
-      {
-        System.IO.Directory.CreateDirectory(directory) ;
-      }
-    }
-
-    public static string ToDelimitedList (
-      this IEnumerable<string> itemNames,
-      string                   itemsSeparator = ","
-    ) => (
-      string.Join(
-        itemsSeparator,
-        itemNames
-      )
-    ) ;
-
-    public static bool CanLocateText ( 
-      this string                  s, 
-      string                       textToFind, 
-      [NotNullWhen(true)] out int? lineNumber_oneBased 
-    ) {
-      int pos = s.IndexOf(textToFind) ;
-      if ( pos == -1 )
-      {
-        lineNumber_oneBased = null ;
-      }
-      else
-      {
-        lineNumber_oneBased = 1 ;
-        while ( pos > 0 )
-        {
-          if ( s[pos] == '\n' )
-          {
-            lineNumber_oneBased++ ;
-          }
-          pos-- ;
-        }
-      }
-      return lineNumber_oneBased != null ;
-    }
-
-  }
-
-}
-
-namespace Clf.Common
-{
-
-  partial class Helpers
+  public static partial class Helpers
   {
 
     public static string ReadAllTextFromFile ( string fileName )
@@ -192,7 +136,7 @@ namespace Clf.Common
     }  
     
     // When called from C# code in a file called 'MyCode.cs',
-    // this returns the full path name of that source file.
+    // this returns the full path to that source file.
 
     public static string GetSourceFilePath ( 
       [System.Runtime.CompilerServices.CallerFilePath] string? sourceCodePath = null 
@@ -220,6 +164,17 @@ namespace Clf.Common
         expressionTextLines.ToCharArray().Where(
           ch => ! char.IsWhiteSpace(ch)
         ).ToArray() 
+      ) ;
+    }
+
+    public static bool IsNumericType ( this System.Type type )
+    {
+      System.Type iNumberType = typeof(INumber<>) ;
+      return type.GetInterfaces().Any(
+        implementedInterface => (
+           implementedInterface.IsGenericType 
+        && implementedInterface.GetGenericTypeDefinition() == iNumberType
+        )
       ) ;
     }
 
